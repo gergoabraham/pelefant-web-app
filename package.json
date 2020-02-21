@@ -2,16 +2,20 @@
   "name": "pelefant",
   "version": "1.0.0",
   "description": "",
+  "main": "app.js",
   "scripts": {
-    "start-server": "supervisor server.js",
+    "start": "node app.js",
+    "start-server": "supervisor app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Gergő Ábrahám",
   "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
   "devDependencies": {
     "eslint": "^6.8.0",
     "eslint-config-google": "^0.14.0",
-    "express": "^4.17.1",
     "supervisor": "^0.12.0"
   }
 }
