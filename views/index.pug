@@ -1,0 +1,25 @@
+doctype html
+html(lang="en")
+  head
+    title Pelefánt
+  body
+    h1 Ez itt a Pelefánt! &lt;3
+  
+    p Üzenj valamit :3
+  
+    p Küldi:
+      input(type='radio', id='elefant', name='sender', value='elefant')
+      label(for='elefant') Elefánt
+      input(type='radio', id='pele', name='sender', value='pele')
+      label(for='pele') Pele
+  
+    input(type='text')
+    button Küldés
+  
+    h2 Üzenetek
+    p (#{messages.length} db)
+  
+    each message in messages
+      p
+        b #{message.sender} (#{message.time}):
+      p #{message.text}

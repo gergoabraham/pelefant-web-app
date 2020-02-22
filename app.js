@@ -3,9 +3,16 @@
 const express = require('express');
 
 const app = express();
+app.set('view engine', 'pug');
+
 app.get('/', myApp);
 
 const messages = [
+  {
+    sender: 'Elefánt',
+    time: '22:56',
+    text: 'én is téged',
+  },
   {
     sender: 'Pele',
     time: '22:42',
@@ -19,19 +26,7 @@ const messages = [
 ];
 
 function myApp(req, res) {
-  const textMessages = messages.map((message) => `<p><b>${message.sender} at ${message.time}:</b></p><p>${message.text}</p>`);
-
-  res.status(200).send(
-      `<h1>Ez itt a <b>Pelefánt</b>! <3 : )</h1>
-      <p> Üzenj valamit :3</p>
-      <p>Küldi:</p>
-      <input type="radio" id="elefant" name="sender" value="elefant">
-      <label for="elefant">Elefánt</label><br>
-      <input type="radio" id="pele" name="sender" value="pele">
-      <label for="pele">Pele</label><br>
-      <input type="text"><button type="button">Küldés</button>
-      ${textMessages}`,
-  );
+  res.status(200).render('index', {messages: messages});
 }
 
 const PORT = process.env.PORT || 8080;
