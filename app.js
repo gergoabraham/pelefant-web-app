@@ -2,6 +2,7 @@
 
 const express = require('express');
 const {Datastore} = require('@google-cloud/datastore');
+const moment = require('moment');
 
 const datastore = new Datastore();
 
@@ -12,10 +13,14 @@ app.use(express.urlencoded({extended: true}));
 app.get('/', getHandler);
 app.post('/send', postHandler);
 
+moment.locale('hu');
+
 async function getHandler(req, res, next) {
   const query = datastore.createQuery('message').order('timestamp', {descending: true});
   const queryResult = await datastore.runQuery(query);
   const messages = queryResult[0];
+
+  messages.forEach((message) => message.timestamp = moment(message.timestamp).format('YYYY. MMMM DD. HH:mm:ss'));
 
   res.status(200).render('index', {messages: messages});
 }

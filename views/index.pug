@@ -14,7 +14,7 @@ html(lang="en")
       input(type='radio', id='pele', name='sender', value='Pele', required)
       label(for='pele') Pele
   
-      input(type='text' name='text', required)
+      input(type='text', name='text', required)
       button(type='submit') Küldés
   
     h2 Üzenetek
@@ -22,5 +22,7 @@ html(lang="en")
   
     each message in messages
       p
-        b #{message.sender} (#{message.timestamp.toLocaleString()}):
+        b #{message.sender} 
+        | (#{message.timestamp})
+        b :
       p #{message.text}
