@@ -8,13 +8,14 @@ html(lang="en")
     p Üzenj valamit :3
   
     p Küldi:
-      input(type='radio', id='elefant', name='sender', value='elefant')
+    form(action='/send' method='post')
+      input(type='radio', id='elefant', name='sender', value='Elefánt', required)
       label(for='elefant') Elefánt
-      input(type='radio', id='pele', name='sender', value='pele')
+      input(type='radio', id='pele', name='sender', value='Pele', required)
       label(for='pele') Pele
   
-    input(type='text')
-    button Küldés
+      input(type='text' name='text', required)
+      button(type='submit') Küldés
   
     h2 Üzenetek
     p (#{messages.length} db)
