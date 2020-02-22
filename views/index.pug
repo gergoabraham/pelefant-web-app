@@ -22,5 +22,5 @@ html(lang="en")
   
     each message in messages
       p
-        b #{message.sender} (#{message.timestamp}):
+        b #{message.sender} (#{message.timestamp.toLocaleString()}):
       p #{message.text}

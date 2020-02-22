@@ -20,7 +20,17 @@ async function getHandler(req, res, next) {
   res.status(200).render('index', {messages: messages});
 }
 
-function postHandler(req, res, next) {
+async function postHandler(req, res, next) {
+  const key = datastore.key('message');
+  const entity = {
+    key: key,
+    data: {
+      sender: req.body.sender || 'Unnamed',
+      text: req.body.text || 'Empty message.',
+      timestamp: new Date(),
+    },
+  };
+  await datastore.save(entity);
   res.redirect('/');
 }
 
