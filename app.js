@@ -12,6 +12,7 @@ app.use(express.urlencoded({extended: true}));
 
 app.get('/', getHandler);
 app.post('/send', postHandler);
+app.use(express.static('public'));
 
 moment.locale('hu');
 
