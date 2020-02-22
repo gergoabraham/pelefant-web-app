@@ -5,12 +5,13 @@
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
-    "start-local": "supervisor app.js",
+    "start-local": "set PORT=666&&set GOOGLE_APPLICATION_CREDENTIALS=key.json&& supervisor app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Gergő Ábrahám",
   "license": "ISC",
   "dependencies": {
+    "@google-cloud/datastore": "^5.0.6",
     "express": "^4.17.1",
     "pug": "^2.0.4"
   },

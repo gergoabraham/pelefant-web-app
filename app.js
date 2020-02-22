@@ -1,6 +1,9 @@
 'use strict';
 
 const express = require('express');
+const {Datastore} = require('@google-cloud/datastore');
+
+const datastore = new Datastore();
 
 const app = express();
 app.set('view engine', 'pug');
@@ -9,30 +12,15 @@ app.use(express.urlencoded({extended: true}));
 app.get('/', getHandler);
 app.post('/send', postHandler);
 
-const messages = [
-  {
-    sender: 'Elefánt',
-    time: '22:56',
-    text: 'én is téged',
-  },
-  {
-    sender: 'Pele',
-    time: '22:42',
-    text: 'Hogy vagy?',
-  },
-  {
-    sender: 'Pele',
-    time: '22:33',
-    text: 'Szia, Babám!',
-  },
-];
+async function getHandler(req, res, next) {
+  const query = datastore.createQuery('message').order('timestamp', {descending: true});
+  const queryResult = await datastore.runQuery(query);
+  const messages = queryResult[0];
 
-function getHandler(req, res, next) {
   res.status(200).render('index', {messages: messages});
 }
 
 function postHandler(req, res, next) {
-  console.log(req.body);
   res.redirect('/');
 }
 
