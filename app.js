@@ -21,8 +21,6 @@ async function getHandler(req, res, next) {
   const queryResult = await datastore.runQuery(query);
   const messages = queryResult[0];
 
-  messages.forEach((message) => message.timestamp = moment(message.timestamp).format('YYYY. MMMM DD. HH:mm:ss'));
-
   res.status(200).render('index', {messages: messages});
 }
 

@@ -24,6 +24,8 @@ html(lang="en")
     each message in messages
       p
         b #{message.sender} 
-        | (#{message.timestamp})
+        span(class="time") #{message.timestamp.getTime()}
         b :
       p #{message.text}
+      
+    script(src="js/time-converter.js")
