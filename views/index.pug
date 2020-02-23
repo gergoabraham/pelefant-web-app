@@ -6,31 +6,33 @@ html(lang='en')
   body
     h1(class='header') Ez itt a Pelefánt! &lt;3
     div(class='container')
-      div#sender
-        h2 Üzenj valamit :3
+      div#sender(class='card')
+        div
+          h2 Üzenj valamit :3
 
-        p Küldi:
-        form(action='/send' method='post')
-          input(type='radio', id='elefant', name='sender', value='Elefánt', required)
-          label(for='elefant') Elefánt
-          input(type='radio', id='pele', name='sender', value='Pele', required)
-          label(for='pele') Pele
-          br
-          input(type='text', name='text', required)
-          br
-          button(type='submit') Küldés
+          p Küldi:
+          form(action='/send' method='post')
+            input(type='radio', id='elefant', name='sender', value='Elefánt', required)
+            label(for='elefant') Elefánt
+            input(type='radio', id='pele', name='sender', value='Pele', required)
+            label(for='pele') Pele
+            br
+            input(type='text', name='text', required)
+            br
+            button(type='submit') Küldés
 
       div#messages
-        h2 Üzenetek
-        p (#{messages.length} db)
-
+        div(class='card')
+          h2 Üzenetek
+          p (#{messages.length} db)
         each message in messages
-          p
-            b #{message.sender}
-            |
-            |
-            span(class='time') #{message.timestamp.getTime()}
-            b :
-          p #{message.text}
+          div(class='message card')
+            p
+              b #{message.sender}
+              |
+              |
+              span(class='time') #{message.timestamp.getTime()}
+              b :
+            p #{message.text}
 
     script(src='js/time-converter.js')
