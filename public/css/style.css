@@ -98,6 +98,26 @@ input {
     width: 20%;
     text-align: right;
     color: grey;
+    z-index: -1;
+}
+
+.message-header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.message-sender {
+    font-weight: bold;
+}
+
+.message-timestamp {
+    color: grey;
+    z-index: -1;
+}
+
+.message-text {
+    padding: 10px;
+    text-align: left;
 }
 
 @media only screen and (max-width: 850px) {

@@ -9,7 +9,7 @@ const localeOptions = {
   second: '2-digit',
   weekday: 'long',
 };
-const timeElements = document.getElementsByClassName('time');
+const timeElements = document.getElementsByClassName('message-timestamp');
 
 for (let i = 0; i < timeElements.length; i++) {
   const timeStamp = Number(timeElements[i].innerHTML);

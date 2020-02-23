@@ -27,12 +27,9 @@ html(lang='en')
           p#message-count #{messages.length} db
         each message in messages
           div(class='message card')
-            p
-              b #{message.sender}
-              |
-              |
-              span(class='time') #{message.timestamp.getTime()}
-              b :
-            p #{message.text}
+            div(class='message-header')
+              div(class='message-sender') #{message.sender}
+              div(class='message-timestamp') #{message.timestamp.getTime()}
+            div(class='message-text') #{message.text}
 
     script(src='js/time-converter.js')
