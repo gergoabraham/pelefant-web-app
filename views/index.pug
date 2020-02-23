@@ -22,9 +22,9 @@ html(lang='en')
             button(type='submit') Küldés
 
       div#messages
-        div(class='card')
-          h2 Üzenetek
-          p (#{messages.length} db)
+        div#message-title-card(class='card')
+          h2#message-title Üzenetek
+          p#message-count #{messages.length} db
         each message in messages
           div(class='message card')
             p

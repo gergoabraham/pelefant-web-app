@@ -84,6 +84,22 @@ input {
     margin: 10px 5px;
 }
 
+#message-title-card {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+}
+
+#message-title {
+    width: 60%;
+}
+
+#message-count{
+    width: 20%;
+    text-align: right;
+    color: grey;
+}
+
 @media only screen and (max-width: 850px) {
     .container {
         display: flex;
