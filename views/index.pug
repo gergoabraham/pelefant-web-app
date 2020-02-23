@@ -5,10 +5,10 @@ html(lang='en')
     link(rel='stylesheet' type='text/css' href='css/style.css')
   body
     h1(class='header') Ez itt a Pelefánt! &lt;3
-    
+
     div#sender
       p Üzenj valamit :3
-  
+
       p Küldi:
       form(action='/send' method='post')
         input(type='radio', id='elefant', name='sender', value='Elefánt', required)
@@ -18,14 +18,16 @@ html(lang='en')
 
         input(type='text', name='text', required)
         button(type='submit') Küldés
-  
+
     div#messages
       h2 Üzenetek
       p (#{messages.length} db)
 
       each message in messages
         p
-          b #{message.sender} 
+          b #{message.sender}
+          |
+          |
           span(class='time') #{message.timestamp.getTime()}
           b :
         p #{message.text}
