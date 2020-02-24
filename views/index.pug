@@ -7,7 +7,7 @@ html(lang='en')
   body
     h1(class='header') Ez itt a Pelefánt! &lt;3
     div(class='container')
-      div#sender(class='card')
+      div#sender(class='card inflatable')
         div
           h2 Üzenj valamit :3
 
@@ -22,11 +22,11 @@ html(lang='en')
             button(type='submit') Küldés
 
       div#messages
-        div#message-title-card(class='card')
+        div#message-title-card(class='card inflatable pressable')
           h2#message-title Üzenetek
           p#message-count #{messages.length} db
         each message in messages
-          div(class='message card')
+          div(class='message card inflatable pressable')
             div(class='message-header')
               div(class='message-sender') #{message.sender}
               div(class='message-timestamp') #{message.timestamp.getTime()}
