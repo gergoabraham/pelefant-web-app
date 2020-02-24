@@ -5,7 +5,12 @@ html(lang='en')
     link(rel='stylesheet' type='text/css' href='css/style.css')
     meta(name="viewport" content="width=device-width, initial-scale=1")
   body
-    h1(class='header') Ez itt a Pelefánt! &lt;3
+    div(class='header')
+      img#header-logo(class='header-logos' src='images/pelefant.svg')
+      h1#header-title Ez itt a Pelefánt! &lt;3
+      a#header-logo-container(class='header-logos' href='https://github.com/gergooo/pelefant-web-app' target='_blank')
+        img#github-logo(class='header-logos' src='images/GitHub-Mark-64px.png')
+
     div(class='container')
       div#sender(class='card inflatable')
         div

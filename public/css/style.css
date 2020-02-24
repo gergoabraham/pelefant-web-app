@@ -9,14 +9,23 @@ body {
 
 .header {
     background-color: #FFFFFF;
-    width: 100%;
-    margin: 0;
+    width: calc(100% - 40px);
     box-shadow: 0px 2px 15px -5px rgba(142, 129, 122, 1);
     -webkit-box-shadow: 0px 2px 15px -5px rgb(142, 129, 122);
     position: fixed;
     top: 0;
-    line-height: 80px;
     height: 80px;
+    
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.header-logos {
+    height: 64px;
+    width: 64px;
 }
 
 #sender, #messages {
@@ -161,5 +170,22 @@ input {
     }
     #message-count {
         opacity: 1;
+    }
+    
+    h1, h2 {
+        font-size-adjust: 0.4;
+    }
+    
+    .header {
+        height: 60px;
+    }
+    
+    body {
+        padding-top: 60px;
+    }
+    
+    .header-logos {
+        width: 32px;
+        height: 32px;
     }
 }
