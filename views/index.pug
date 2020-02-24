@@ -32,10 +32,10 @@ html(lang='en')
           p#message-count #{messages.length} db
         each message in messages
           div(class='message card inflatable pressable')
-            div(class='message-header')
-              div(class='message-sender') #{message.sender}
+            img(class='message-sender' src='images/' + message.sender + '.svg')
+            div(class='message-body')
               div(class='message-timestamp') #{message.timestamp.getTime()}
-            div(class='message-text') #{message.text}
+              div(class='message-text') #{message.text}
 
     script(src='js/time-converter.js')
     script(src='js/hide-sender.js')

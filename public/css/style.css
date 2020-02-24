@@ -120,19 +120,29 @@ input {
     opacity: 1;
 }
 
-.message-header {
+.message {
     display: flex;
-    justify-content: space-between;
 }
 
 .message-sender {
     font-weight: bold;
+    width: 64px;
+    height: 64px;
+    margin: 5px;
+}
+
+.message-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-grow: 1;
 }
 
 .message-timestamp {
     color: grey;
     opacity:  0;
     transition-duration: 30ms;
+    align-self: flex-end;
 }
 
 .card:hover .message-timestamp {
@@ -142,6 +152,7 @@ input {
 .message-text {
     padding: 10px;
     text-align: left;
+    flex-grow: 1;
 }
 
 @media only screen and (max-width: 850px) {
