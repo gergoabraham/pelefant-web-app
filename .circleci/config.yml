@@ -5,7 +5,9 @@ jobs:
       - image: google/cloud-sdk
     steps:
       - checkout
-      - run: |
+      - run:
+          name: Deploy web app to Google App Engine
+          command: |
             echo $GCLOUD_SERVICE_KEY | base64 --decode > ${HOME}/gcloud-service-key.json
             gcloud auth activate-service-account --key-file=${HOME}/gcloud-service-key.json
             gcloud --quiet config set project ${GOOGLE_PROJECT_ID}
