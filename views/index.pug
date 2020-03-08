@@ -3,6 +3,7 @@ html(lang='en')
   head
     title Pelefánt
     link(rel='stylesheet' type='text/css' href='css/style.css')
+    link(rel='stylesheet' type='text/css' href='css/cards.css')
     meta(name="viewport" content="width=device-width, initial-scale=1")
   body
     div(class='header')
@@ -29,12 +30,12 @@ html(lang='en')
       div#messages
         div#message-title-card(class='card inflatable pressable')
           h2#message-title Üzenetek
-          p#message-count #{messages.length} db
+          p#message-count(class="visible-on-hover") #{messages.length} db
         each message in messages
           div(class='message card inflatable pressable')
             img(class='message-sender' src='images/' + message.sender.toLowerCase().replace(/á/,'a') + '.svg')
             div(class='message-body')
-              div(class='message-timestamp') #{message.timestamp.getTime()}
+              div(class='message-timestamp visible-on-hover') #{message.timestamp.getTime()}
               div(class='message-text') #{message.text}
 
     script(src='js/time-converter.js')

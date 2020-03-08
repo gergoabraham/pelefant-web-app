@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Amatic+SC|Montserrat|Oswald|Pacifico|Roboto+Slab&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Amatic+SC|Montserrat&display=swap');
 body {
     margin: 0;
     text-align: center;
@@ -67,27 +67,6 @@ h1, h2 {
     justify-content: center;
 }
 
-.card {
-    padding: 10px;
-    margin: 15px;
-    background-color: #FFFFFF;
-    box-shadow: 2px 2px 15px -5px rgba(142, 129, 122, 1);
-    -webkit-box-shadow: 2px 2px 15px -5px rgb(142, 129, 122);
-}
-
-.inflatable:hover {
-    background-color: #e9ffb9;
-    transform: scale(1.02, 1.02);
-    box-shadow: 6px 6px 15px -5px rgba(142, 129, 122, 1);
-    transition-duration: 100ms;
-}
-
-.pressable:active {
-    transform: scale(0.98, 0.98);
-    box-shadow: 0px 0px 15px -5px rgba(142, 129, 122, 1);
-    transition-duration: 10ms;
-}
-
 form {
     margin: 10px;
 }
@@ -114,11 +93,6 @@ input {
     width: 20%;
     text-align: right;
     color: grey;
-    opacity: 0;
-}
-
-.card:hover #message-count {
-    opacity: 1;
 }
 
 .message {
@@ -141,13 +115,8 @@ input {
 
 .message-timestamp {
     color: grey;
-    opacity: 0;
     transition-duration: 30ms;
     align-self: flex-end;
-}
-
-.card:hover .message-timestamp {
-    opacity: 1;
 }
 
 .message-text {
@@ -176,12 +145,6 @@ input {
         min-height: 0px;
         position: fixed;
         transition-duration: 300ms;
-    }
-    .message-timestamp {
-        opacity: 1;
-    }
-    #message-count {
-        opacity: 1;
     }
     h1, h2 {
         font-size: 1.6em;
