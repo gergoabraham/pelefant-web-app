@@ -1,0 +1,39 @@
+#new-message {
+    font-family: 'Montserrat';
+}
+
+#new-message {
+    padding: 20px;
+    height: 50vh;
+    width: 50%;
+    min-height: 200px;
+    max-height: 600px;
+    max-width: 600px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    z-index: 1;
+}
+
+form {
+    margin: 10px;
+}
+
+label {
+    margin: 10px 10px 10px 0px;
+}
+
+input {
+    margin: 10px 5px;
+}
+
+@media only screen and (max-width: 850px) {
+    #new-message {
+        width: calc(100vw - 40px - 30px);
+        max-width: 100vw;
+        max-height: 150px;
+        min-height: 0px;
+        position: fixed;
+        transition-duration: 300ms;
+    }
+}

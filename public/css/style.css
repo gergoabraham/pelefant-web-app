@@ -1,20 +1,39 @@
 @import url('https://fonts.googleapis.com/css?family=Amatic+SC|Montserrat&display=swap');
+:root {
+    --header-height: 80px;
+    --body-top-padding: 80px;
+    --header-font-size: 3em;
+    --logo-size: 64px;
+    --container-display-type: flex;
+    --foreground-color: #FFFFFF;
+}
+
+@media only screen and (max-width: 850px) {
+    :root {
+        --header-height: 60px;
+        --body-top-padding: 60px;
+        --header-font-size: 1.6em;
+        --logo-size: 32px;
+        --container-display-type: block;
+    }
+}
+
 body {
     margin: 0;
     text-align: center;
-    padding-top: 80px;
+    padding-top: var(--body-top-padding);
     background-color: #f2f2f2;
     color: #2f2f2f;
 }
 
 .header {
-    background-color: #FFFFFF;
+    background-color: var(--foreground-color);
     width: calc(100% - 40px);
     box-shadow: 0px 2px 15px -5px rgba(142, 129, 122, 1);
     -webkit-box-shadow: 0px 2px 15px -5px rgb(142, 129, 122);
     position: fixed;
     top: 0;
-    height: 80px;
+    height: var(--header-height);
     z-index: 1;
     display: flex;
     justify-content: space-between;
@@ -24,139 +43,20 @@ body {
 }
 
 .header-logos {
-    height: 64px;
-    width: 64px;
-}
-
-#new-message, #messages {
-    font-family: 'Montserrat';
-}
-
-#new-message {
-    padding: 20px;
-    height: 50vh;
-    width: 50%;
-    min-height: 200px;
-    max-height: 600px;
-    max-width: 600px;
-    align-items: center;
-    display: flex;
-    justify-content: center;
-    z-index: 1;
-}
-
-#messages {
-    height: calc(100vh - 80px);
-    width: 600px;
-    overflow-y: scroll;
-    scrollbar-width: none;
-    margin-bottom: 0px;
-    padding-right: 10px;
+    height: var(--logo-size);
+    width: var(--logo-size);
 }
 
 h1, h2 {
     font-family: 'Amatic SC';
-    font-size: 3em;
+    font-size: var(--header-font-size);
     margin: 0px;
 }
 
 .container {
-    display: flex;
+    display: var(--container-display-type);
     flex-wrap: nowrap;
     align-items: center;
     justify-content: center;
-}
-
-form {
-    margin: 10px;
-}
-
-label {
-    margin: 10px 10px 10px 0px;
-}
-
-input {
-    margin: 10px 5px;
-}
-
-#message-title-card {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-}
-
-#message-title {
-    width: 60%;
-}
-
-#message-count {
-    width: 20%;
-    text-align: right;
-    color: grey;
-}
-
-.message {
-    display: flex;
-}
-
-.message-sender {
-    font-weight: bold;
-    width: 64px;
-    height: 64px;
-    margin: 5px;
-}
-
-.message-body {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    flex-grow: 1;
-}
-
-.message-timestamp {
-    color: grey;
-    transition-duration: 30ms;
-    align-self: flex-end;
-}
-
-.message-text {
-    padding: 10px;
-    text-align: left;
-    flex-grow: 1;
-}
-
-@media only screen and (max-width: 850px) {
-    .container {
-        display: block;
-        flex-wrap: nowrap;
-        flex-direction: column;
-    }
-    #messages {
-        height: auto;
-        max-width: 100vw;
-        width: 100vw;
-        padding-right: 0px;
-        padding-top: 200px;
-    }
-    #new-message {
-        width: calc(100vw - 40px - 30px);
-        max-width: 100vw;
-        max-height: 150px;
-        min-height: 0px;
-        position: fixed;
-        transition-duration: 300ms;
-    }
-    h1, h2 {
-        font-size: 1.6em;
-    }
-    .header {
-        height: 60px;
-    }
-    body {
-        padding-top: 60px;
-    }
-    .header-logos {
-        width: 32px;
-        height: 32px;
-    }
+    flex-direction: row;
 }
