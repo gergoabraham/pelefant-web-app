@@ -16,7 +16,6 @@ body {
     top: 0;
     height: 80px;
     z-index: 1;
-
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -43,6 +42,7 @@ body {
     align-items: center;
     display: flex;
     justify-content: center;
+    z-index: 1;
 }
 
 #messages {
@@ -110,7 +110,7 @@ input {
     width: 60%;
 }
 
-#message-count{
+#message-count {
     width: 20%;
     text-align: right;
     color: grey;
@@ -141,7 +141,7 @@ input {
 
 .message-timestamp {
     color: grey;
-    opacity:  0;
+    opacity: 0;
     transition-duration: 30ms;
     align-self: flex-end;
 }
@@ -183,19 +183,15 @@ input {
     #message-count {
         opacity: 1;
     }
-    
     h1, h2 {
         font-size: 1.6em;
     }
-    
     .header {
         height: 60px;
     }
-    
     body {
         padding-top: 60px;
     }
-    
     .header-logos {
         width: 32px;
         height: 32px;
