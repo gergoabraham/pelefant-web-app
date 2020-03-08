@@ -3,25 +3,25 @@
 let previousPageYOffset = 0;
 let isHidden = false;
 
-function hideSenderOnDownScroll() {
-  const sender = document.getElementById('sender');
+function hideNewMessageOnDownScroll() {
+  const newMessageDiv = document.getElementById('new-message');
 
   if (!isHidden && previousPageYOffset < window.pageYOffset) {
     isHidden = true;
-    sender.setAttribute('style', 'opacity:0');
+    newMessageDiv.setAttribute('style', 'opacity:0');
     setTimeout(() => {
       if (isHidden) {
-        sender.setAttribute('style', 'opacity:0; visibility:hidden');
+        newMessageDiv.setAttribute('style', 'opacity:0; visibility:hidden');
       }
     }, 300);
   }
 
   if (isHidden && previousPageYOffset > window.pageYOffset) {
     isHidden = false;
-    sender.setAttribute('style', 'opacity:1');
+    newMessageDiv.setAttribute('style', 'opacity:1');
   }
 
   previousPageYOffset = window.pageYOffset;
 }
 
-window.addEventListener('scroll', hideSenderOnDownScroll);
+window.addEventListener('scroll', hideNewMessageOnDownScroll);
