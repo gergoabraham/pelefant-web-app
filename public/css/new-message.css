@@ -1,11 +1,12 @@
 :root {
-    --new-message-height: 200px;
+    --new-message-height: 400px;
     --new-message-width: 600px;
     --new-message-position: static;
 }
 
 @media only screen and (max-width: 850px) {
     :root {
+        --new-message-height: 200px;
         --new-message-width: 100vw;
         --new-message-position: fixed;
     }
@@ -24,6 +25,30 @@
     display: flex;
     justify-content: center;
 }
+
+/* Sender selection */
+
+.animal-radio {
+    display: none;
+}
+
+.animal-label {
+    width: max-content;
+    padding: 10px;
+    display: block;
+    float: left;
+    transition-duration: 150ms;
+}
+
+.animal-label:hover {
+    background-color: var(--highlight-color);
+}
+
+.animal-radio:checked+.animal-label {
+    background-color: var(--highlight-color);
+}
+
+/* Text input */
 
 form {
     margin: 10px;

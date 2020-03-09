@@ -1,6 +1,7 @@
 :root {
     --card-margin: 15px;
     --card-padding: 10px;
+    --highlight-color: #e9ffb9;
 }
 
 /* Card */
@@ -8,20 +9,19 @@
 .card {
     background-color: var(--foreground-color);
     box-shadow: 2px 2px 15px -5px rgba(142, 129, 122, 1);
-    -webkit-box-shadow: 2px 2px 15px -5px rgb(142, 129, 122);
     padding: var(--card-padding);
     margin: var(--card-margin);
     transition-duration: 100ms;
 }
 
 .inflatable:hover {
-    background-color: #e9ffb9;
+    background-color: var(--highlight-color);
     box-shadow: 6px 6px 15px -5px rgba(142, 129, 122, 1);
     transform: scale(1.02, 1.02);
 }
 
 .pressable:active {
-    background-color: #e9ffb9;
+    background-color: var(--highlight-color);
     box-shadow: 0px 0px 15px -5px rgba(142, 129, 122, 1);
     transform: scale(0.98, 0.98);
     transition-duration: 10ms;

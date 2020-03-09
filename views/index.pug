@@ -16,16 +16,17 @@ html(lang='en')
 
     div(class='main-container')
       div#new-message-container
-        div#new-message(class='card inflatable')
+        div#new-message(class='card')
           div
             h2 Üzenj valamit :3
 
             form(action='/send' method='post')
-              label Feladó:
-              input(type='radio', id='elefant', name='sender', value='Elefánt', required)
-              label(for='elefant') Elefánt
-              input(type='radio', id='pele', name='sender', value='Pele', required)
-              label(for='pele') Pele
+              input(class='animal-radio' type='radio', id='elefant', name='sender', value='Elefánt', required)
+              label(class='animal-label' for='elefant')
+                img(class='header-logos' src='images/elefant.svg' alt='Elefánt' title='Elefánt')
+              input(class='animal-radio' type='radio', id='pele', name='sender', value='Pele', required)
+              label(class='animal-label' for='pele')
+                img(class='header-logos' src='images/pele.svg' alt='Pele' title='Pele')
               br
               input(type='text', name='text', required)
               button(type='submit') Küldés
