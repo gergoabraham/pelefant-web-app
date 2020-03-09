@@ -1,18 +1,28 @@
-#new-message {
-    font-family: 'Montserrat';
+:root {
+    --new-message-height: 200px;
+    --new-message-width: 600px;
+    --new-message-position: static;
+}
+
+@media only screen and (max-width: 850px) {
+    :root {
+        --new-message-width: 100vw;
+        --new-message-position: fixed;
+    }
+}
+
+#new-message-container {
+    width: var(--new-message-width);
+    position: var(--new-message-position);
+    transition-duration: 300ms;
+    z-index: 1;
 }
 
 #new-message {
-    padding: 20px;
-    height: 50vh;
-    width: 50%;
-    min-height: 200px;
-    max-height: 600px;
-    max-width: 600px;
+    height: calc(var(--new-message-height) - 2 * var(--card-padding));
     align-items: center;
     display: flex;
     justify-content: center;
-    z-index: 1;
 }
 
 form {
@@ -25,15 +35,4 @@ label {
 
 input {
     margin: 10px 5px;
-}
-
-@media only screen and (max-width: 850px) {
-    #new-message {
-        width: calc(100vw - 40px - 30px);
-        max-width: 100vw;
-        max-height: 150px;
-        min-height: 0px;
-        position: fixed;
-        transition-duration: 300ms;
-    }
 }

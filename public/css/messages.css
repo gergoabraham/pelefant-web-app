@@ -1,15 +1,33 @@
-#messages {
-    font-family: 'Montserrat';
+/* Messages container */
+
+:root {
+    --message-container-height: calc(100vh - 80px);
+    --message-container-width: 600px;
+    --message-container-side-padding: 10px;
+    --message-container-top-padding: 0px;
+}
+
+@media only screen and (max-width: 850px) {
+    :root {
+        --message-container-height: auto;
+        --message-container-width: 100vw;
+        --message-container-side-padding: 0px;
+        --message-container-top-padding: calc(var(--new-message-height) + var(--card-margin));
+    }
 }
 
 #messages {
-    height: calc(100vh - 80px);
-    width: 600px;
+    height: var(--message-container-height);
+    width: var(--message-container-width);
     overflow-y: scroll;
     scrollbar-width: none;
     margin-bottom: 0px;
-    padding-right: 10px;
+    padding-left: var(--message-container-side-padding);
+    padding-right: var(--message-container-side-padding);
+    padding-top: var(--message-container-top-padding);
 }
+
+/* Messages title card */
 
 #message-title-card {
     display: flex;
@@ -27,12 +45,13 @@
     color: grey;
 }
 
+/* Message cards */
+
 .message {
     display: flex;
 }
 
 .message-sender {
-    font-weight: bold;
     width: 64px;
     height: 64px;
     margin: 5px;
@@ -52,17 +71,7 @@
 }
 
 .message-text {
-    padding: 10px;
     text-align: left;
+    padding: 10px;
     flex-grow: 1;
-}
-
-@media only screen and (max-width: 850px) {
-    #messages {
-        height: auto;
-        max-width: 100vw;
-        width: 100vw;
-        padding-right: 0px;
-        padding-top: 200px;
-    }
 }

@@ -1,39 +1,48 @@
+:root {
+    --card-margin: 15px;
+    --card-padding: 10px;
+}
+
 /* Card */
 
 .card {
-    padding: 10px;
-    margin: 15px;
     background-color: var(--foreground-color);
     box-shadow: 2px 2px 15px -5px rgba(142, 129, 122, 1);
     -webkit-box-shadow: 2px 2px 15px -5px rgb(142, 129, 122);
+    padding: var(--card-padding);
+    margin: var(--card-margin);
+    transition-duration: 100ms;
 }
 
 .inflatable:hover {
     background-color: #e9ffb9;
-    transform: scale(1.02, 1.02);
     box-shadow: 6px 6px 15px -5px rgba(142, 129, 122, 1);
-    transition-duration: 100ms;
+    transform: scale(1.02, 1.02);
 }
 
 .pressable:active {
     background-color: #e9ffb9;
-    transform: scale(0.98, 0.98);
     box-shadow: 0px 0px 15px -5px rgba(142, 129, 122, 1);
+    transform: scale(0.98, 0.98);
     transition-duration: 10ms;
 }
 
 /* Hidden elements on cards */
 
+:root {
+    --default-visibility: 0;
+}
+
+@media only screen and (max-width: 850px) {
+    :root {
+        --default-visibility: 1;
+    }
+}
+
 .visible-on-hover {
-    opacity: 0;
+    opacity: var(--default-visibility);
 }
 
 .card:hover .visible-on-hover {
     opacity: 1;
-}
-
-@media only screen and (max-width: 850px) {
-    .visible-on-hover {
-        opacity: 1;
-    }
 }

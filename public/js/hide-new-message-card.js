@@ -4,7 +4,7 @@ let previousPageYOffset = 0;
 let isHidden = false;
 
 function hideNewMessageOnDownScroll() {
-  const newMessageDiv = document.getElementById('new-message');
+  const newMessageDiv = document.getElementById('new-message-container');
 
   if (!isHidden && previousPageYOffset < window.pageYOffset) {
     isHidden = true;

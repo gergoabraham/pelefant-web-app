@@ -14,20 +14,21 @@ html(lang='en')
       a#header-logo-container(class='header-logos' href='https://github.com/gergooo/pelefant-web-app' target='_blank')
         img#github-logo(class='header-logos' src='images/GitHub-Mark-64px.png')
 
-    div(class='container')
-      div#new-message(class='card inflatable')
-        div
-          h2 Üzenj valamit :3
+    div(class='main-container')
+      div#new-message-container
+        div#new-message(class='card inflatable')
+          div
+            h2 Üzenj valamit :3
 
-          form(action='/send' method='post')
-            label Feladó:
-            input(type='radio', id='elefant', name='sender', value='Elefánt', required)
-            label(for='elefant') Elefánt
-            input(type='radio', id='pele', name='sender', value='Pele', required)
-            label(for='pele') Pele
-            br
-            input(type='text', name='text', required)
-            button(type='submit') Küldés
+            form(action='/send' method='post')
+              label Feladó:
+              input(type='radio', id='elefant', name='sender', value='Elefánt', required)
+              label(for='elefant') Elefánt
+              input(type='radio', id='pele', name='sender', value='Pele', required)
+              label(for='pele') Pele
+              br
+              input(type='text', name='text', required)
+              button(type='submit') Küldés
 
       div#messages
         div#message-title-card(class='card inflatable pressable')
