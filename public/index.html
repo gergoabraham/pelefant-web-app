@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Pelefánt</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/new-message.css">
+    <link rel="stylesheet" type="text/css" href="css/messages.css">
+    <link rel="stylesheet" type="text/css" href="css/cards.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+
+    <div class="header"><img class="header-logos" id="header-logo" src="images/pelefant.svg">
+        <h1 id="header-title">Ez itt a Pelefánt! &lt;3</h1><a class="header-logos" id="header-logo-container"
+            href="https://github.com/gergooo/pelefant-web-app" target="_blank"><img class="header-logos"
+                id="github-logo" src="images/GitHub-Mark-64px.png"></a>
+    </div>
+
+    <div class="main-container">
+        <div id="new-message-container">
+            <div class="card" id="new-message">
+                <h2 id="new-message-title">Üzenj valamit :3</h2>
+
+                <form class="new-message-form" action="/send" method="post">
+                    <div id="radio-group"><input class="animal-radio" type="radio" id="elefant" name="sender"
+                            value="Elefánt" required><label class="animal-label" for="elefant"><img class="header-logos"
+                                src="images/elefant.svg" alt="Elefánt" title="Elefánt"></label><input
+                            class="animal-radio" type="radio" id="pele" name="sender" value="Pele" required><label
+                            class="animal-label" for="pele"><img class="header-logos" src="images/pele.svg" alt="Pele"
+                                title="Pele"></label></div>
+
+                    <div id="text-input-group"><textarea class="text-input" type="text" name="text"
+                            required></textarea><button class="send-button" type="submit">Küldés</button></div>
+                </form>
+
+            </div>
+        </div>
+
+        <div id="messages">
+            <div class="card inflatable pressable" id="message-title-card">
+                <h2 id="message-title">Üzenetek</h2>
+                <p class="visible-on-hover" id="message-count">- db</p>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="js/hide-new-message-card.js"></script>
+    <script src="js/load-messages.js"></script>
+</body>
+
+</html>

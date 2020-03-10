@@ -13,8 +13,7 @@
   "license": "ISC",
   "dependencies": {
     "@google-cloud/datastore": "^5.0.6",
-    "express": "^4.17.1",
-    "pug": "^2.0.4"
+    "express": "^4.17.1"
   },
   "devDependencies": {
     "chai": "^4.2.0",
