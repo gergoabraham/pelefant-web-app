@@ -15,6 +15,8 @@ async function loadMessages() {
   removeExistingMessages(messagesDiv);
   const fetchedMessages = await fetchNewMessages();
   insertNewMessages(fetchedMessages, messagesDiv);
+
+  updateMessageCount(fetchedMessages);
 }
 
 function removeExistingMessages(messagesDiv) {
@@ -53,6 +55,11 @@ function createMessageElement(fetchedMessage, parser) {
 
   const messageElement = parser.parseFromString(innerHTML, 'text/html');
   return messageElement.body.children[0];
+}
+
+function updateMessageCount(fetchedMessages) {
+  const messageCountElement = document.getElementById('message-count');
+  messageCountElement.innerHTML = `${fetchedMessages.length} db`;
 }
 
 document.body.onload = loadMessages;
