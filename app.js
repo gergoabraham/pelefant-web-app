@@ -2,7 +2,7 @@
 
 const express = require('express');
 const {Datastore} = require('@google-cloud/datastore');
-const {getMethodHandler} = require('./src/get-messages');
+const {getMethodHandler, getMessagesHandler} = require('./src/get-messages');
 const {postMethodHandler} = require('./src/post-message');
 
 const datastore = new Datastore();
@@ -12,6 +12,7 @@ app.set('view engine', 'pug');
 app.use(express.urlencoded({extended: true}));
 
 app.get('/', getMethodHandler(datastore));
+app.get('/messages', getMessagesHandler);
 app.post('/send', postMethodHandler(datastore));
 app.use(express.static('public'));
 
