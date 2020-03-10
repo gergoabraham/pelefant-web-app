@@ -2,13 +2,15 @@
     --new-message-height: 400px;
     --new-message-width: 600px;
     --new-message-position: static;
+    --new-message-form-order: column;
 }
 
 @media only screen and (max-width: 850px) {
     :root {
-        --new-message-height: 200px;
+        --new-message-height: 250px;
         --new-message-width: 100vw;
         --new-message-position: fixed;
+        --new-message-form-order: column-reverse;
     }
 }
 
@@ -23,6 +25,14 @@
     height: calc(var(--new-message-height) - 2 * var(--card-padding));
     align-items: center;
     display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.new-message-form {
+    display: flex;
+    flex-direction: var(--new-message-form-order);
+    flex-wrap: wrap;
     justify-content: center;
 }
 
@@ -35,6 +45,7 @@
 .animal-label {
     width: max-content;
     padding: 10px;
+    margin: 5px;
     display: block;
     float: left;
     transition-duration: 150ms;
@@ -48,16 +59,36 @@
     background-color: var(--highlight-color);
 }
 
+#radio-group {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
 /* Text input */
 
-form {
-    margin: 10px;
+#text-input-group {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
-label {
-    margin: 10px 10px 10px 0px;
+.text-input {
+    font-family: inherit;
+    font-size: inherit;
+    resize: none;
+    width: calc(100% - 6px);
+    height: 80px;
 }
 
-input {
-    margin: 10px 5px;
+.send-button {
+    font-family: 'Amatic SC';
+    font-size: 1.5em;
+    background-color: var(--foreground-color);
+    border: hidden;
+}
+
+.send-button:hover {
+    background-color: var(--highlight-color);
 }
