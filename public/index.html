@@ -39,7 +39,10 @@
         </div>
 
         <div id="messages">
-            <div class="card inflatable pressable" id="message-title-card">
+            <div class="card inflatable pressable" id="message-title-card" onclick="loadMessages()">
+                <div id="refresh-button-container">
+                    <img id="refresh-button-img" class="visible-on-hover" src="images/refresh.svg">
+                </div>
                 <h2 id="message-title">Üzenetek</h2>
                 <p class="visible-on-hover" id="message-count">- db</p>
             </div>
