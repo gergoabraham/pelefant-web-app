@@ -32,6 +32,7 @@
                 "ignoreTemplateLiterals": true,
                 "ignoreStrings": true
             }
-        ]
+        ],
+        "no-invalid-this": "off"
     }
 }

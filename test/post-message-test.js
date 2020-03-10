@@ -2,9 +2,45 @@
 
 const chai = require('chai');
 chai.should();
+const sinonChai = require('sinon-chai');
+chai.use(sinonChai);
+const sinon = require('sinon');
+
+const {postMethodHandler} = require('../src/post-message');
 
 describe('POST new message', function() {
-  it('should do stuff', function() {
-    '2'.should.equal('2');
+  let postHandler;
+  const datastore = {
+    key: sinon.fake.returns('da key'),
+    save: sinon.fake.resolves(),
+  };
+
+  it('should return a handler function', function() {
+    postHandler = postMethodHandler(datastore);
+    (typeof(postHandler)).should.equals('function');
+  });
+
+  it('should do things', async function() {
+    const req = {
+      body: {sender: '1', text: '2'},
+    };
+    const res = {redirect: sinon.fake.returns()};
+    this.clock = sinon.useFakeTimers({now: 33});
+
+    await postHandler(req, res);
+
+    datastore.key.should.have.been.calledWithExactly('message');
+    datastore.save.should.have.been.calledWithExactly(
+        {
+          key: 'da key',
+          data: {sender: '1', text: '2', timestamp: new Date(33)},
+        },
+    );
+    res.redirect.should.have.been.calledWithExactly('/');
+  });
+
+  after(function() {
+    sinon.restore();
+    this.clock.restore();
   });
 });
