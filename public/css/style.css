@@ -61,3 +61,7 @@ h1, h2 {
     flex-wrap: nowrap;
     justify-content: center;
 }
+
+.clickable {
+    cursor: pointer;
+}

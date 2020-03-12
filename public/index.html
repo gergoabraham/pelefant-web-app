@@ -28,18 +28,18 @@
                 <form class="new-message-form" action="/send" method="post">
                     <div id="radio-group">
                         <input class="animal-radio" type="radio" id="elefant" name="sender" value="Elefánt" required>
-                        <label class="animal-label" for="elefant">
+                        <label class="animal-label clickable" for="elefant">
                             <img class="header-logos" src="images/elefant.svg" alt="Elefánt" title="Elefánt">
                         </label>
                         <input class="animal-radio" type="radio" id="pele" name="sender" value="Pele" required>
-                        <label class="animal-label" for="pele">
+                        <label class="animal-label clickable" for="pele">
                             <img class="header-logos" src="images/pele.svg" alt="Pele" title="Pele">
                         </label>
                     </div>
 
                     <div id="text-input-group">
                         <textarea class="text-input" type="text" name="text" required></textarea>
-                        <button class="send-button" type="submit">Küldés</button>
+                        <button class="send-button clickable" type="submit">Küldés</button>
                     </div>
                 </form>
 
@@ -47,7 +47,7 @@
         </div>
 
         <div id="messages">
-            <div class="card inflatable pressable" id="message-title-card" onclick="loadMessages()">
+            <div class="card inflatable pressable clickable" id="message-title-card" onclick="loadMessages()">
                 <div id="refresh-button-container">
                     <img id="refresh-button-img" class="visible-on-hover" src="images/refresh.svg">
                 </div>
