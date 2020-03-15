@@ -20,6 +20,9 @@ jobs:
       - run:
           name: test
           command: npm test
+      - run:
+          name: eslint
+          command: npm run eslint
 
   deploy:
     docker:
