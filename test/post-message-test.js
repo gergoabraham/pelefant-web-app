@@ -24,7 +24,7 @@ describe('POST new message', function() {
     const req = {
       body: {sender: '1', text: '2'},
     };
-    const res = {redirect: sinon.fake.returns()};
+    const res = {status: sinon.fake.returns({send: sinon.fake.returns()})};
     this.clock = sinon.useFakeTimers({now: 33});
 
     await postHandler(req, res);
@@ -36,7 +36,7 @@ describe('POST new message', function() {
           data: {sender: '1', text: '2', timestamp: new Date(33)},
         },
     );
-    res.redirect.should.have.been.calledWithExactly('/');
+    res.status.should.have.been.calledWithExactly(200);
   });
 
   after(function() {
