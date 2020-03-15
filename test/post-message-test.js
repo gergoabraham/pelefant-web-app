@@ -16,7 +16,7 @@ describe('POST new message', function() {
   };
 
   it('should return a handler function', function() {
-    postHandler = postMethodHandler(datastore);
+    postHandler = postMethodHandler(datastore, 'message');
     (typeof(postHandler)).should.equals('function');
   });
 
