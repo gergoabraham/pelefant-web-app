@@ -65,7 +65,7 @@ function createMessageElement(fetchedMessage, parser) {
             <img class="message-sender" src="images/${sender.toLowerCase().replace(/á/g, 'a')}.svg">
             <div class="message-body">
                 <div class="message-timestamp visible-on-hover">${new Date(timestamp).toLocaleString('hu-HU', localeOptions)}</div>
-                <div class="message-text">${text}</div>
+                <div class="message-text">${text.replace(/\n/g, '<br>')}</div>
             </div>
         </div>`;
 
