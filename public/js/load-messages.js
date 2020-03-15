@@ -58,8 +58,8 @@ function createMessageElement(fetchedMessage, parser) {
 }
 
 function updateMessageCount(fetchedMessages) {
-  const messageCountElement = document.getElementById('message-count');
-  messageCountElement.innerHTML = `${fetchedMessages.length} db`;
+  const messageCountElement = document.getElementById('message-count-value');
+  messageCountElement.innerHTML = `${fetchedMessages.length}`;
 }
 
 document.body.onload = loadMessages;
