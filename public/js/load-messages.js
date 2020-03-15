@@ -12,17 +12,10 @@ const localeOptions = {
 async function loadMessages() {
   const messagesDiv = document.getElementById('messages');
 
-  removeExistingMessages(messagesDiv);
   const fetchedMessages = await fetchNewMessages();
   insertNewMessages(fetchedMessages, messagesDiv);
 
   updateMessageCount(fetchedMessages);
-}
-
-function removeExistingMessages(messagesDiv) {
-  while (messagesDiv.children[1]) {
-    messagesDiv.children[1].remove();
-  }
 }
 
 async function fetchNewMessages() {
@@ -34,7 +27,30 @@ async function fetchNewMessages() {
 
 function insertNewMessages(fetchedMessages, messagesDiv) {
   const parser = new DOMParser();
+  const latestMessage = messagesDiv.children[1];
 
+  if (latestMessage) {
+    addNewMessages(latestMessage, fetchedMessages, parser);
+  } else {
+    fillWithMessages(fetchedMessages, parser, messagesDiv);
+  }
+}
+
+function addNewMessages(latestMessage, fetchedMessages, parser) {
+  const latestMessageTime = new Date(latestMessage.getAttribute('time'));
+  let i = 0;
+  let newMessageTime = new Date(fetchedMessages[i].timestamp);
+
+  while (newMessageTime > latestMessageTime) {
+    const messageElement = createMessageElement(fetchedMessages[i], parser);
+    latestMessage.before(messageElement);
+
+    i++;
+    newMessageTime = new Date(fetchedMessages[i].timestamp);
+  }
+}
+
+function fillWithMessages(fetchedMessages, parser, messagesDiv) {
   fetchedMessages.forEach((fetchedMessage) => {
     const messageElement = createMessageElement(fetchedMessage, parser);
     messagesDiv.appendChild(messageElement);
@@ -45,7 +61,7 @@ function createMessageElement(fetchedMessage, parser) {
   const {sender, timestamp, text} = fetchedMessage;
 
   const innerHTML =
-        `<div class="message card inflatable pressable">
+        `<div class="message card inflatable pressable" time=${timestamp}>
             <img class="message-sender" src="images/${sender.toLowerCase().replace(/á/g, 'a')}.svg">
             <div class="message-body">
                 <div class="message-timestamp visible-on-hover">${new Date(timestamp).toLocaleString('hu-HU', localeOptions)}</div>
