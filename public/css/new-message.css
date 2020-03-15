@@ -93,6 +93,11 @@
     background-color: var(--highlight-color);
 }
 
+.disabled-button {
+    cursor: not-allowed;
+    color: grey;
+}
+
 /* Shake */
 
 @keyframes shake {
