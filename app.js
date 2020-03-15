@@ -8,7 +8,7 @@ const {postMethodHandler} = require('./src/post-message');
 const datastore = new Datastore();
 
 const app = express();
-app.use(express.urlencoded({extended: true}));
+app.use(express.json());
 app.get('/messages', getMessagesHandler(datastore));
 app.post('/send', postMethodHandler(datastore));
 app.use(express.static('public'));

@@ -25,7 +25,7 @@
             <div class="card" id="new-message">
                 <h2 id="new-message-title">Üzenj valamit :3</h2>
 
-                <form class="new-message-form" action="/send" method="post">
+                <form class="new-message-form">
                     <div id="radio-group">
                         <input class="animal-radio" type="radio" id="elefant" name="sender" value="Elefánt" required>
                         <label class="animal-label clickable" for="elefant">
@@ -38,8 +38,9 @@
                     </div>
 
                     <div id="text-input-group">
-                        <textarea class="text-input" type="text" name="text" required></textarea>
-                        <button class="send-button clickable" type="submit">Küldés</button>
+                        <textarea id="text-input" class="text-input" type="text" name="text" required></textarea>
+                        <button class="send-button clickable" type="button"
+                            onclick="sendNewMessage(event)">Küldés</button>
                     </div>
                 </form>
 
@@ -60,6 +61,7 @@
 
     <script src="js/hide-new-message-card.js"></script>
     <script src="js/load-messages.js"></script>
+    <script src="js/send-new-message.js"></script>
 </body>
 
 </html>
