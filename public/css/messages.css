@@ -57,8 +57,17 @@
 
 /* Message cards */
 
+@keyframes grow {
+    from {
+        transform: scale(0.95);
+        opacity: 0;
+    }
+}
+
 .message {
     display: flex;
+    animation-name: grow;
+    animation-duration: 0.5s;
 }
 
 .message-sender {
