@@ -7,7 +7,7 @@ function getMessagesHandler(ds) {
   return getHandler;
 }
 
-async function getHandler(req, res, next) {
+async function getHandler(req, res) {
   const messages = await getMessagesFromDB();
   res.status(200).json(messages);
 }

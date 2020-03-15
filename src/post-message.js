@@ -2,7 +2,7 @@
 
 let datastore;
 
-async function postHandler(req, res, next) {
+async function postHandler(req, res) {
   const key = datastore.key('message');
 
   if (!req.body.sender || !req.body.text) {
