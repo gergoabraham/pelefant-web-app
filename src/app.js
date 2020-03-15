@@ -6,11 +6,12 @@ const {getMessagesHandler} = require('./get-messages');
 const {postMethodHandler} = require('./post-message');
 
 const datastore = new Datastore();
+const kind = process.env.KIND || 'message';
 
 const app = express();
 app.use(express.json());
-app.get('/messages', getMessagesHandler(datastore));
-app.post('/send', postMethodHandler(datastore));
+app.get('/messages', getMessagesHandler(datastore, kind));
+app.post('/send', postMethodHandler(datastore, kind));
 app.use(express.static('public'));
 
 const PORT = process.env.PORT || 8080;

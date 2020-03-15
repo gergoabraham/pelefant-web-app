@@ -5,7 +5,7 @@
   "main": "app.js",
   "scripts": {
     "start": "node src/app.js",
-    "start-local": "set PORT=666&&set GOOGLE_APPLICATION_CREDENTIALS=key.json&& supervisor src/app.js",
+    "start-local": "set PORT=666&&set GOOGLE_APPLICATION_CREDENTIALS=key.json&&set KIND=test&& supervisor src/app.js",
     "test": "mocha test/*",
     "tdd": "mocha test/* --watch",
     "eslint": "eslint ."

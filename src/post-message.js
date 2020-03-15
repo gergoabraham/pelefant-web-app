@@ -1,9 +1,10 @@
 'use strict';
 
 let datastore;
+let kind;
 
 async function postHandler(req, res) {
-  const key = datastore.key('message');
+  const key = datastore.key(kind);
 
   if (!req.body.sender || !req.body.text) {
     res.status(400).send();
@@ -24,8 +25,9 @@ async function postHandler(req, res) {
   res.status(200).send();
 }
 
-function postMethodHandler(ds) {
+function postMethodHandler(ds, dsKind) {
   datastore = ds;
+  kind = dsKind;
   return postHandler;
 }
 
