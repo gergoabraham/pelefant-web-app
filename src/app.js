@@ -2,8 +2,8 @@
 
 const express = require('express');
 const {Datastore} = require('@google-cloud/datastore');
-const {getMessagesHandler} = require('./src/get-messages');
-const {postMethodHandler} = require('./src/post-message');
+const {getMessagesHandler} = require('./get-messages');
+const {postMethodHandler} = require('./post-message');
 
 const datastore = new Datastore();
 

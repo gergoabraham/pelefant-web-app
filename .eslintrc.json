@@ -1,9 +1,7 @@
 {
     "env": {
-        "node": true,
         "es6": true,
-        "browser": true,
-        "mocha": true
+        "browser": true
     },
     "extends": [
         "google"
@@ -33,6 +31,12 @@
                 "ignoreStrings": true
             }
         ],
-        "no-invalid-this": "off"
+        "no-invalid-this": "off",
+        "no-unused-vars": [
+            "error",
+            {
+                "vars": "local"
+            }
+        ]
     }
 }

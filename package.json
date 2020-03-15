@@ -4,8 +4,8 @@
   "description": "Playing around with Node.js, Express and Google App Engine",
   "main": "app.js",
   "scripts": {
-    "start": "node app.js",
-    "start-local": "set PORT=666&&set GOOGLE_APPLICATION_CREDENTIALS=key.json&& supervisor app.js",
+    "start": "node src/app.js",
+    "start-local": "set PORT=666&&set GOOGLE_APPLICATION_CREDENTIALS=key.json&& supervisor src/app.js",
     "test": "mocha test/*",
     "tdd": "mocha test/* --watch"
   },
